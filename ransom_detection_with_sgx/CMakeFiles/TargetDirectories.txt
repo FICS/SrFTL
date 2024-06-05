@@ -1,0 +1,3 @@
+/home/weidong/ransom_detection_with_sgx/CMakeFiles/rebuild_cache.dir
+/home/weidong/ransom_detection_with_sgx/CMakeFiles/ransom_detection.dir
+/home/weidong/ransom_detection_with_sgx/CMakeFiles/edit_cache.dir

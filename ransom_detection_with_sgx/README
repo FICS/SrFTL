@@ -1,0 +1,22 @@
+Introduction
+============
+This repository is for ransomware detection modules in the userspace and sgx. And this is composed of two part. The first one that outside the sgx is responsible for communication channel between FTL and SGX. Another one is sgx part that to perform ransomware detection function.
+
+Secure Channel
+==============
+## Why Secure Channel
+
+Secure channel is responsible for the data communication between FTL and SGX. Because, in our threat mode, the operating system is possible to be compromised by ransomware attacker. Therefore, make sure the security of communication of FTL and SGX is crucial for the whole system.
+
+## Getting LBA
+
+In our design, we will build up a database to record every files' LBA. This is because the FTL part will return suspicious ransomware data's LBA. And SGX need to konw which file the LBA belongs. Therefore, by buiding up this database, we could read the ransomware data out of storage device and then perform the further detection.
+Besides, we also attach some important files' properfites to the table for comprehensive detection, such as file's modification time, link number and file size.
+Therefore, in the mapping table, the key is LBA and value is the corresponding file name and its properties. The table is shown in following.
+
+	LBA,file_name,sector_number,modification_time,link_number,byte_size
+
+## Before Running the experiment
+It is very important to disable the write buffer and read cache when we run our experiment. Because the buffer and cache will distract the detection of out-of-place ransomware.
+Therefore, we could use ``disable_cache_buffer.sh`` to disable the write buffer and read cache.
+

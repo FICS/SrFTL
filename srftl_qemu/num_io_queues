@@ -1,0 +1,7 @@
+hw/block/femu/femu.c <unknown> 112 static void *nvme_poller(void *arg)
+hw/block/femu/femu.c <unknown> 164 void femu_create_nvme_poller(FemuCtrl *n)
+hw/block/femu/femu.c <unknown> 198     qemu_thread_create(&n->poller, "nvme-poller", nvme_poller, n,
+hw/block/femu/femu.c <unknown> 203 static void femu_destroy_nvme_poller(FemuCtrl *n)
+hw/block/femu/femu.c <unknown> 1059     femu_destroy_nvme_poller(n);
+hw/block/femu/nvme-util.c <unknown> 772         femu_create_nvme_poller(n);
+hw/block/femu/nvme.h <unknown> 1332 void femu_create_nvme_poller(FemuCtrl *n);

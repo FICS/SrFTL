@@ -1,0 +1,18 @@
+enclave {
+
+    include "../../include/types.h"
+
+    trusted {
+        public int ecall_initialize();
+        public int ecall_process_table(int fd);
+        public void ecall_add_mapping(uint64_t lba, [in]struct file_properties * file);
+    };
+
+    untrusted {
+        void ocall_print_string([in, string] const char *str);
+        int ocall_pwrite(int fd, [in, size=len] void *buf, size_t len, size_t offset);
+        int ocall_pread(int fd, [out, size=len] void *buf, size_t len, size_t offset);
+        uint64_t ocall_get_time();
+	int ocall_usleep(int time);
+    };
+};

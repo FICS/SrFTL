@@ -1,0 +1,1 @@
+/usr/bin/c++     -pthread -rdynamic CMakeFiles/ransom_detection.dir/src/detection.cpp.o CMakeFiles/ransom_detection.dir/detection_running.cpp.o  -o ransom_detection 
